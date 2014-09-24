@@ -14,7 +14,7 @@ Please refer to the following wiki pages in our [configuration repo](https://git
 * [edX Ubuntu 12.04 64-bit Installation](https://github.com/edx/configuration/wiki/edX-Ubuntu-12.04-64-bit-Installation)
 <br/>This will install edX on an existing Ubuntu 12.04 server.
 
-
+#9.3
 License
 -------
 
