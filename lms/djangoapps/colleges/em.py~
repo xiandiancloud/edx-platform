@@ -1,0 +1,20 @@
+import smtplib
+from email.mime.text import MIMEText
+from email.MIMEMultipart import MIMEMultipart
+  
+def sendsimplemail (warning):
+
+      msg = MIMEText(warning)
+      msg['Subject'] = 'python first mail'
+      msg['From'] = 'jitianhui2009@163.com'
+      try:
+            smtp = smtplib.SMTP()
+            smtp.connect(r'smtp.163.com')
+            smtp.login('jitianhui2009@163.com', '1024717294')
+            smtp.sendmail('jitianhui2009@163.com', ['jitianhui2009@163.com'], msg.as_string())
+            smtp.close()
+      except Exception, e:
+            print e
+ 
+if __name__ == '__main__':
+      sendsimplemail(warning = "This is a warning!!!")   

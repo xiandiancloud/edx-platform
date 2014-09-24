@@ -1,0 +1,126 @@
+<%! from django.utils.translation import ugettext as _ %>
+<%! from courseware.courses import course_image_url, get_course_about_section %>
+<%! from status.status import get_site_status_msg %>
+<%! from courseware.views import major_search %>
+
+<%inherit file="../main.html" />
+
+<%namespace name='static' file='../static_content.html'/>
+
+<%block name="pagetitle">${_("Courses")}</%block>
+<%! from microsite_configuration import microsite %>
+
+<%MAJOR=['云计算','云计算基础架构服务平台','云计算开发架构服务平台','云计算软件服务平台服务','操作系统','网络','存储','开发语言','大数据','移动']%>
+<%GRADE=['初级','中级','高级']%>
+<style type="text/css">
+select.form-control--dropdown {
+line-height: normal;
+}
+col {
+padding-left: 20px;
+}
+filters__filter {
+padding-bottom: 15px;
+}
+form-control--small {
+font-size: 13px;
+}
+
+form-control {
+font-size: 15px;
+}
+form-control--dropdown {
+text-align: left;
+text-decoration: none;
+
+border-radius: 3px;
+/* box-shadow: none; */
+padding-right: 50px;
+padding-top: 8px;
+padding-bottom: 8px;
+line-height: 22px;
+text-indent: 1px;
+text-overflow: '';
+position: relative;
+}
+form-control {
+border-radius: 4px;
+display: inline-block;
+vertical-align: middle;
+background: #FFF;
+border: 1px solid #ddd;
+color: #333;
+font-family: "Helvetica Neue Custom","Helvetica Neue",Helvetica,Arial,sans-serif;
+font-size: 16px;
+font-weight: 400;
+height: 40px;
+padding: 10px 10px;
+vertical-align: middle;
+width: 100%;
+}
+
+user agent stylesheetkeygen, select {
+border-radius: 0px;
+}
+
+</style>
+<section class="find-courses" xmlns="http://www.w3.org/1999/html">
+<%
+  course_index_overlay_text = microsite.get_value('course_index_overlay_text', _("Explore free courses from leading universities."))
+
+  # not sure why this is, but if I use static.url('images/edx_bw.png') then the HTML rendering
+  # of this template goes wonky
+
+  logo_file = microsite.get_value(
+    'course_index_overlay_logo_file', settings.STATIC_URL + 'images/edx_bw.png')
+%>
+
+
+  <section class="container" >
+     <div style="margin-top: 20px;">
+        <h1 style="LINE-HEIGHT: 100%;FONT-FAMILY: '微软雅黑';font-size:40px;">${len(courses)}+的课程，造就你的云梦想！</h1>
+         
+     </div>
+  </section>
+
+  <section class="container" style="background-color: #e3e3e3">
+  <div style="margin: 0px 0px 0px 20px;">
+         <form id="search_form" method="post" action="/major_search">
+             <li style="list-style:none;float:left;width:10%;"><p style="FONT-FAMILY: '微软雅黑';font-size:large;LINE-HEIGHT: 250%;">课程搜索:</p></li>
+              <li style="list-style:none;float:left;width:44%;">
+                  <select id="major" name="major_name" class="filters__filter__select form-control form-control--dropdown form-control--small" style="margin-right:40px;width:180px;background-color: #f5f5f5;height:35px;FONT-FAMILY: '微软雅黑';" >
+                      <option value="">专业</option>
+                      %for major in MAJOR:
+                      <option value="${major}">${major}</option>
+                      %endfor
+                  </select>
+                  <select id="grade" name="grade" class="filters__filter__select form-control form-control--dropdown form-control--small" style="FONT-FAMILY: '微软雅黑';width:180px;height:35px;background-color: #f5f5f5" >
+                  <option value="">等级</option>
+                  %for grade in GRADE:
+                  <option value="${grade}">${_(grade)}</option>
+                   %endfor
+                  </select>
+              </li>
+
+              <li style="list-style:none;float:left;width:45%;">
+                  <input type="text" name="search" value="" class="filters__filter__select form-control form-control--dropdown form-control--small" style="width: 400px;font-style:normal;height:35px;FONT-FAMILY: '微软雅黑';background-color: #f5f5f5"/>
+                  <input type="hidden" name="csrfmiddlewaretoken" value="${ csrf_token }">
+                  <input type="submit" id="submit" value="" style="padding:0;width:37px;height:35px;background:url(/static/images/search.png) no-repeat left top" />
+             </li>
+         </form>
+   </div>
+  </section>
+  <section class="container">
+    <section class="courses">
+      <li class="courses-listing-item">
+        %for course in courses:
+          <!--%if get_course_about_section(course, 'university') == major_search(request).get('school'):-->
+            <ul class="courses-listing">
+              <%include file="../course.html" args="course=course"/>
+            </ul>
+          <!--%endif-->
+        %endfor
+      </li>
+    </section>
+</section>
+
