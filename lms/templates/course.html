@@ -11,22 +11,15 @@ from courseware.courses import course_image_url, get_course_about_section
   %endif
   <a href="${reverse('about_course', args=[course.id.to_deprecated_string()])}">
     <div class="inner-wrapper">
-      <!--<header class="course-preview">
-        <hgroup>
-          <h2><span class="course-number">${course.display_number_with_default | h}</span> ${get_course_about_section(course, 'title')}</h2>
-        </hgroup>
-       <div class="info-link">&#x2794;</div>
-      </header>-->
 
 
       <section class="info">
-        <div class="cover-image">
+        <div class="cover-image" style="float:right;width:33%">
           <img src="${course_image_url(course)}" alt="${course.display_number_with_default | h} ${get_course_about_section(course, 'title')} Cover Image" />
         </div>
       <div class="desc">
           <h2><span class="course-number">${course.display_number_with_default | h}</span> ${get_course_about_section(course, 'title')}</h2>
           <h3>课程描述:</h3>
-          <!--<p class="txt">gflgk;flgasfjldasfjdlafjlasdlasfjdlasfjdlasfjlldfjkdl.df</p>-->
           <p class="txt">${get_course_about_section(course, 'short_description')}</p>
       </div>
         <div class="bottom">

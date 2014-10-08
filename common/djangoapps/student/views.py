@@ -786,7 +786,7 @@ def login_user(request, error=""):  # pylint: disable-msg=too-many-statements,un
 
         email = request.POST['email']
         password = request.POST['password']
-
+        #nicky add here
         try:
             user = User.objects.get(email=email)
             role = RoleUser.objects.get(userId=user.id)
@@ -794,7 +794,7 @@ def login_user(request, error=""):  # pylint: disable-msg=too-many-statements,un
             if roleuser.roleName == "student" and request.META.get('HTTP_REFERER', '/').split('/')[-1] == "signin":
                 return JsonResponse({
                     "success": False,
-                    "value": _('sutdent cant log in the system.'),
+                    "value": _('studeng cant log in the system.'),
                 })
 
         except User.DoesNotExist:
@@ -1086,6 +1086,7 @@ def _do_create_account(post_vars, extended_profile=None):
 
     # TODO: Rearrange so that if part of the process fails, the whole process fails.
     # Right now, we can have e.g. no registration e-mail sent out and a zombie account
+    #nicky add here
     try:
         user.save()
         roleuser = RoleUser(userId=user.id)
@@ -1152,28 +1153,6 @@ def _do_create_account(post_vars, extended_profile=None):
     UserPreference.set_preference(user, LANGUAGE_KEY, get_language())
 
     return (user, profile, registration)
-
-
-def upload_image(request, post_override=None):
-    print "++++++++++++++"
-    print request.get_full_path()
-    image = request.POST
-    print image
-    #print request._get_files
-    success_msg = u"upload image success"
-    response = HttpResponse(success_msg)
-    response.set_cookie('csrftoken', csrf(request)['csrf_token'])
-    return response
-
-def introduce_course(request):
-    print "+++++++++++"
-    print request.POST
-    course_id = request.POST["url"][8:]
-
-    success_msg = u"upload image success"
-    response = HttpResponse(success_msg)
-    response.set_cookie('csrftoken', csrf(request)['csrf_token'])
-    return response
 
 @ensure_csrf_cookie
 def create_account(request, post_override=None):  # pylint: disable-msg=too-many-statements
@@ -1749,7 +1728,7 @@ def reactivation_email_for_user(user):
         })  # TODO: this should be status code 500  # pylint: disable=fixme
 
     return JsonResponse({"success": True})
-
+#nicky add here
 def sendemail(subject, message, from_email, to):
     import smtplib
     from email.mime.text import MIMEText

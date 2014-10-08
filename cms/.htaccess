@@ -1,0 +1,4 @@
+AuthName "test cms"
+AuthType Basic
+AuthUserFile /edx/app/edxapp/edx-platform/cms/.htpasswd
+Require valid-user nicky

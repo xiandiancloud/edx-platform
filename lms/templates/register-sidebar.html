@@ -23,8 +23,8 @@ from django.core.urlresolvers import reverse
 </div>
 
 % endif
-
- <!--<div class="cta">
+<!--
+ <div class="cta">
     <form name="upload" method="post" data-remote="true" action="/upload_image" >
          <input type="hidden" name="csrfmiddlewaretoken" value="${ csrf_token }">
         <div>
@@ -33,14 +33,15 @@ from django.core.urlresolvers import reverse
          <input type="submit" class="button" name="ok" value="upload" />
         </div>
     </form>
- </div>-->
+ </div>
+ -->
 
 ## TODO: Use a %block tag or something to allow themes to
 ##       override in a more generalizable fashion.
 % if not stanford_theme_enabled():
   <div class="cta cta-welcome">
-    <h3>${_("Welcome to {platform_name}").format(platform_name='XD-MOOC')}</h3>
-    <p>${_("Registering with {platform_name} gives you access to all of our current and future free courses. Not ready to take a course just yet? Registering puts you on our mailing list - we will update you as courses are added.").format(platform_name='XD-MOOC')}</p>
+    <h3>${_("Welcome to {platform_name}").format(platform_name=platform_name)}</h3>
+    <p>${_("Registering with {platform_name} gives you access to all of our current and future free courses. Not ready to take a course just yet? Registering puts you on our mailing list - we will update you as courses are added.").format(platform_name=platform_name)}</p>
   </div>
 % endif
 
@@ -49,14 +50,14 @@ from django.core.urlresolvers import reverse
   % if stanford_theme_enabled():
     <p>${_("You will receive an activation email.  You must click on the activation link to complete the process.  Don't see the email?  Check your spam folder and mark emails from class.stanford.edu as 'not spam', since you'll want to be able to receive email from your courses.")}</p>
   % else:
-    <p>${_("As part of joining {platform_name}, you will receive an activation email.  You must click on the activation link to complete the process.  Don't see the email?  Check your spam folder and mark {platform_name} emails as 'not spam'.  At {platform_name}, we communicate mostly through email.").format(platform_name='XD-MOOC')}</p>
+    <p>${_("As part of joining {platform_name}, you will receive an activation email.  You must click on the activation link to complete the process.  Don't see the email?  Check your spam folder and mark {platform_name} emails as 'not spam'.  At {platform_name}, we communicate mostly through email.").format(platform_name=platform_name)}</p>
   % endif
 </div>
 
 % if settings.MKTG_URL_LINK_MAP.get('FAQ'):
   <div class="cta cta-help">
     <h3>${_("Need Help?")}</h3>
-    <p>${_("Need help in registering with {platform_name}?").format(platform_name='XD-MOOC')}
+    <p>${_("Need help in registering with {platform_name}?").format(platform_name=platform_name)}
       <a href="${marketing_link('FAQ')}">
           ${_("View our FAQs for answers to commonly asked questions.")}
       </a>

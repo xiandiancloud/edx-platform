@@ -1,4 +1,4 @@
-﻿<%! from django.utils.translation import ugettext as _ %>
+<%! from django.utils.translation import ugettext as _ %>
 
 <%inherit file="main.html" />
 
@@ -129,7 +129,7 @@
 
           <li class="field required text" id="field-email">
             <label for="email">${_("E-mail")}</label>
-            <input class="" id="email" type="email" name="email" value="" placeholder="${'例: xiandiancloud@163.com'}" />
+            <input class="" id="email" type="email" name="email" value="" placeholder="${_('example: username@domain.com')}" />
           </li>
 
           % endif

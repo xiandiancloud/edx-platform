@@ -28,9 +28,12 @@
 					<h3>
 					<a href="${reverse('about_course', args=[course.id.to_deprecated_string()])}" title="" target="_blank">${course.display_number_with_default} ${course.display_name_with_default}</a>
 					</h3>
-					<p class="txt">${course.display_name_with_default}是一门好的课程</p>
+					<p class="txt">${get_course_about_section(course, 'short_description')}</p>
 				</div>
 				<div class="right_edx">
+                    % if not course.start_date_is_still_default:
+                    <span style="padding-left:35px" class="start-date">${course.start_date_text}</span>
+                    % endif
 					<p>${course.display_org_with_default} ${_('Supplied')}</p>
 				</div>
 			</li>

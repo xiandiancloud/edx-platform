@@ -1,7 +1,14 @@
-<meta charset="UTF-8">
+<!DOCTYPE html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 <link rel="stylesheet" type="text/css" href="${static.url('sass/index.css')}" />
 <link rel="stylesheet" type="text/css" href="${static.url('sass/reset.css')}" />
+<!--<link rel="stylesheet" type="text/css" href="${static.url('sass/media.css')}" />
 
+   <link href="${static.url('bootstrap/css/bootstrap.min.css')}" rel="stylesheet">
+   <script src="${static.url('bootstrap/js/jquery.min.js')}"></script>
+   <script src="${static.url('bootstrap/js/bootstrap.min.js')}"></script>-->
+</head>
 <%! from django.utils.translation import ugettext as _ %>
 <%!
   from django.core.urlresolvers import reverse
@@ -21,7 +28,8 @@
             schoolist.append(org)
 %>
 
-
+<div class="row">
+    <div class="col-xs-6 col-sm-3">
 <div class="school_list_page">
 <div class="hz_school_w">
 	<section class="wrap hz_school">
@@ -45,3 +53,5 @@
         </section>
 	</div>
 </div>
+</div>
+    </div>

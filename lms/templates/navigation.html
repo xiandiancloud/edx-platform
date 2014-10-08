@@ -36,7 +36,7 @@ site_status_msg = get_site_status_msg(course_id)
 % endif
 </%block>
 
-  <header class="global ${"slim" if course else ""}" aria-label="${_('Global Navigation')}">
+  <header style="background:#00acec" class="global ${"slim" if course else ""}" aria-label="${_('Global Navigation')}">
     <nav>
     <h1 class="logo">
       <a href="${marketing_link('ROOT')}">
@@ -45,13 +45,14 @@ site_status_msg = get_site_status_msg(course_id)
         </%block>
       </a>
     </h1>
-   <h1 class="logo">
+    <h1 class="logo">
       <a href="/">
-            <img src="/static/images/logo-mooc.png" style="margin-top: 12px;margin-left: 0px;margin-right: 40px;" alt="Your Platform Name Here">
+            <img src="/static/images/logo-mooc.png" style="margin-top: 12px;margin-left: -40px;margin-right: 40px;" alt="Your Platform Name Here">
       </a>
     </h1>
+
     % if course:
-    <h2 style="margin-top:13px"><span class="provider">${course.display_org_with_default | h}:</span> ${course.display_number_with_default | h} ${course.display_name_with_default}</h2>
+    <h2><span class="provider">${course.display_org_with_default | h}:</span> ${course.display_number_with_default | h} ${course.display_name_with_default}</h2>
     % endif
 
     % if user.is_authenticated():
@@ -59,15 +60,15 @@ site_status_msg = get_site_status_msg(course_id)
       <%block name="navigation_global_links_authenticated">
         % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
           <li class="nav-global-01">
-            <a style="font-size:16px;font-family:'????';color:#fff;" href="${marketing_link('COURSES')}">${_('Find Courses')}</a>
+            <a style="font-size:16px;font-family:'微软雅黑';color:#fff;" href="${marketing_link('COURSES')}">${_('Courses')}</a>
           </li>
           <li class="nav-global-02">
-            <a style="font-size:16px;font-family:'????';color:#fff;" href="${marketing_link('SCHOOLS')}">${_('Schools')}</a>
+            <a style="font-size:16px;font-family:'微软雅黑';color:#fff;" href="${marketing_link('SCHOOLS')}">${_('Schools')}</a>
           </li>
         % endif
       </%block>
     </ol>
-    <ol style="margin-top:12px" class="user">
+    <ol class="user">
       <li class="primary">
         <a href="${reverse('dashboard')}" class="user-link">
           <span class="avatar"></span>
@@ -100,18 +101,18 @@ site_status_msg = get_site_status_msg(course_id)
       <%block name="navigation_global_links">
         % if microsite.get_value('ENABLE_MKTG_SITE', settings.FEATURES.get('ENABLE_MKTG_SITE', False)):
           <li class="nav-global-02">
-            <a href="${marketing_link('COURSES')}">${_("Courses")}</a>
+            <a style="font-size:16px;font-family:'微软雅黑';color:#fff;" href="${marketing_link('COURSES')}">${_("Courses")}</a>
           </li>
           <li class="nav-global-03">
-            <a href="${marketing_link('SCHOOLS')}">${_("Schools")}</a>
+            <a style="font-size:16px;font-family:'微软雅黑';color:#fff;" href="${marketing_link('SCHOOLS')}">${_("Schools")}</a>
           </li>
         % endif
       </%block>
           <li class="nav-global-02">
-            <a style="font-size:16px;font-family:'????';color:#fff;" href="${marketing_link('COURSES')}">${_("Courses")}</a>
+            <a style="font-size:16px;font-family:'微软雅黑';color:#fff;" href="${marketing_link('COURSES')}">${_("Courses")}</a>
           </li>
           <li class="nav-global-05">
-              <a style="font-size:16px;font-family:'????';color:#fff;" href="${marketing_link('SCHOOLS')}">${_("Schools")}</a>
+              <a style="font-size:16px;font-family:'微软雅黑';color:#fff;" href="${marketing_link('SCHOOLS')}">${_("Schools")}</a>
           </li>
     </ol>
 

@@ -10,6 +10,21 @@
 <%block name="pagetitle">${_("Courses")}</%block>
 <%! from microsite_configuration import microsite %>
 
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="${static.url('sass/index.css')}" />
+<link rel="stylesheet" type="text/css" href="${static.url('sass/reset.css')}" />
+
+<%!
+  from django.core.urlresolvers import reverse
+  from courseware.courses import course_image_url, get_course_about_section
+  from django.conf import settings
+
+%>
+
+
+
+
+
 <%MAJOR=['云计算','云计算基础架构服务平台','云计算开发架构服务平台','云计算软件服务平台服务','操作系统','网络','存储','开发语言','大数据','移动']%>
 <%GRADE=['初级','中级','高级']%>
 <style type="text/css">
@@ -77,13 +92,13 @@ border-radius: 0px;
 
 
   <section class="container" >
-     <div style="margin-top: 20px;">
-        <h1 style="LINE-HEIGHT: 100%;FONT-FAMILY: '微软雅黑';font-size:40px;">${len(courses)}+的课程，造就你的云梦想！</h1>
-         
+     <div style="margin-top: 0px;">
+        <h1 style="LINE-HEIGHT: 250%;FONT-FAMILY: '微软雅黑';font-size:40px;">${len(courses)}+的课程，造就你的云梦想！</h1>
+
      </div>
   </section>
 
-  <section class="container" style="background-color: #e3e3e3">
+  <section class="container" style="background-color: #e3e3e3;padding:30px 0px 0px 0px;height: 70px;">
   <div style="margin: 0px 0px 0px 20px;">
          <form id="search_form" method="post" action="/major_search">
              <li style="list-style:none;float:left;width:10%;"><p style="FONT-FAMILY: '微软雅黑';font-size:large;LINE-HEIGHT: 250%;">课程搜索:</p></li>
@@ -110,17 +125,33 @@ border-radius: 0px;
          </form>
    </div>
   </section>
-  <section class="container">
-    <section class="courses">
-      <li class="courses-listing-item">
-        %for course in courses:
-          <!--%if get_course_about_section(course, 'university') == major_search(request).get('school'):-->
-            <ul class="courses-listing">
-              <%include file="../course.html" args="course=course"/>
-            </ul>
-          <!--%endif-->
-        %endfor
-      </li>
-    </section>
-</section>
 
+    <section class="container">
+          <!--%if get_course_about_section(course, 'university') == major_search(request).get('school'):-->
+            <ul class="list_style" style="margin-top: 20px">
+                %for course in courses:
+				<li class="cf">
+				<div class="img fl">
+					<div class="cover">
+						<a href="${reverse('about_course', args=[course.id.to_deprecated_string()])}"title="" target="_blank">点击查看</a>
+					</div>
+					<img src="${course_image_url(course)}" alt="" title="">
+				</div>
+				<div class="fl center">
+					<p class="name">${course.display_org_with_default} </p>
+					<h3>
+					<a href="${reverse('about_course', args=[course.id.to_deprecated_string()])}" title="" target="_blank">${course.display_number_with_default} ${course.display_name_with_default}</a>
+					</h3>
+					<p class="txt">${get_course_about_section(course, 'short_description')}</p>
+				</div>
+				<div class="right_edx">
+                    % if not course.start_date_is_still_default:
+                    <span style="padding-left:35px" class="start-date">${course.start_date_text}</span>
+                    % endif
+					<p>由 ${course.display_org_with_default} 提供</p>
+				</div>
+			</li>
+                %endfor
+			</ul>
+          <!--%endif-->
+    </section>

@@ -44,7 +44,7 @@ urlpatterns = ('',  # nopep8
     url(r'^major_search$', 'courseware.views.major_search', name='major_search'),
     url(r'^activate/(?P<key>[^/]*)$', 'student.views.activate_account', name="activate"),
 
-    url(r'^upload_image$', 'student.views.upload_image', name='upload_image'),
+   # url(r'^upload_image$', 'student.views.upload_image', name='upload_image'),
 
     url(r'^password_reset/$', 'student.views.password_reset', name='password_reset'),
     ## Obsolete Django views for password resets

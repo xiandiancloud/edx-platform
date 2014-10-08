@@ -55,7 +55,7 @@ urlpatterns += patterns(
     url(r'^logout$', 'student.views.logout_user', name='logout'),
     url(r'^embargo$', 'student.views.embargo', name="embargo"),
 
-    url(r'introduce_course$', 'student.views.introduce_course', name='introduce_course'),
+    #url(r'introduce_course$', 'student.views.introduce_course', name='introduce_course'),
 )
 
 # restful api

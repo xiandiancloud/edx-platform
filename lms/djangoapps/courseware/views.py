@@ -86,17 +86,16 @@ def major_search(request):
     major_s = major_result.get('search').lower()
     major_m = major_result.get('major_name').lower()#choise major
     major_g = major_result.get('grade').lower()#choice grade
-    course_select=[]
+    course_select = []
 
     courses_L = get_courses(request.user, request.META.get('HTTP_HOST'))
     courses_L = sort_by_announcement(courses_L)
 
-
-    if major_s==None and major_g==None and major_m==None:
+    if major_s == None and major_g == None and major_m == None:
         return render_to_response("courseware/courses.html", {'courses': courses_L})
     elif major_s is not None:
         for course in courses_L:
-            major_title=get_course_about_section(course, 'title').lower()
+            major_title = get_course_about_section(course, 'title').lower()
             if major_s in major_title:
                 course_select.append(course)
         return render_to_response("courseware/courses.html", {'courses': course_select})

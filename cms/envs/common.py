@@ -278,7 +278,7 @@ SITE_NAME = "localhost:8001"
 HTTPS = 'on'
 ROOT_URLCONF = 'cms.urls'
 
-# Email
+# Email nicky add here
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.163.com'
 EMAIL_PORT = 25
