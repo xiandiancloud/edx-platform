@@ -230,14 +230,14 @@ class CourseFields(object):
     course_kinds = String(
         help=_('Input the kinds of the course'),
         default="",
-        display_name=_("The kinds of the course"),
+        display_name=_("The Kinds of Course"),
         scope=Scope.settings
     )
 
     course_level = String(
-        help=_('the level of the course.1 is the lowest grade,2 is the middle grade,3 is the highest grade'),
+        help=_('The level of the course.Primary is the lowest grade,intermediate is the middle grade,senior is the highest grade.'),
         default="",
-        display_name=_("The level of the Course"),
+        display_name=_("The Level of Course"),
         scope=Scope.settings
     )
 

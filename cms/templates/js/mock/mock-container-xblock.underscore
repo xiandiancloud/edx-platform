@@ -12,7 +12,7 @@
 <article class="xblock-render">
     <div class="xblock" data-locator="locator-container"
          data-init="MockXBlock" data-runtime-class="StudioRuntime" data-runtime-version="1">
-        <ol class="reorderable-container">
+        <ol class="">
             <li class="studio-xblock-wrapper is-draggable" data-locator="locator-group-A">
                 <section class="wrapper-xblock level-nesting" data-locator="locator-group-A">
                     <header class="xblock-header">
@@ -36,8 +36,7 @@
 
                     <article class="xblock-render">
                         <div class="xblock">
-                            <ol class="reorderable-container">
-                                <li class="studio-xblock-wrapper is-draggable" data-locator="locator-component-A1">
+                            <ol class="reorderable-container              <li class="studio-xblock-wrapper is-draggable" data-locator="locator-component-A1">
                                     <section class="wrapper-xblock level-element"
                                              data-locator="locator-component-A1">
                                         <header class="xblock-header">

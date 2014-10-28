@@ -1,0 +1,20 @@
+v0.1.5
+* Start the server on port 0.0.0.0 so this can be run on Vagrant
+
+v0.1.4
+* When JSCover fails, serve uninstrumented sources.
+
+v0.1.3
+* Changed format of XUnit report test results.
+
+v0.1.2
+* Added support for generating XUnit test result reports
+
+v0.1.1
+* Added additional config for RequireJS
+
+v0.1.0
+* Added support for RequireJS
+
+v0.0.10
+* Graceful handling of when JSCover won't start because not enough memory is available.

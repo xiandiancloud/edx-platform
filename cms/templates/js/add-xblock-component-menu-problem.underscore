@@ -1,10 +1,10 @@
 <div class="tab-group tabs">
     <ul class="problem-type-tabs nav-tabs">
         <li class="current">
-            <a class="link-tab" href="#tab1"><%= gettext("Common Problem Types") %></a>
+            <a class="link-tab" href="#tab1"><%= gettext("普通类型") %></a>
         </li>
         <li>
-            <a class="link-tab" href="#tab2"><%= gettext("Advanced") %></a>
+            <a class="link-tab" href="#tab2"><%= gettext("高级") %></a>
         </li>
     </ul>
     <div class="tab current" id="tab1">

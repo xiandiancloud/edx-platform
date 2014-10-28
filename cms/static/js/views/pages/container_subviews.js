@@ -144,9 +144,9 @@ define(["jquery", "underscore", "gettext", "js/views/baseview", "js/views/utils/
                 if (e && e.preventDefault) {
                     e.preventDefault();
                 }
-                ViewUtils.confirmThenRunOperation(gettext("Discard Changes"),
-                    gettext("Are you sure you want to revert to the last published version of the unit? You cannot undo this action."),
-                    gettext("Discard Changes"),
+                ViewUtils.confirmThenRunOperation(gettext("放弃更改"),
+                    gettext("你想恢复到最后发布的版本吗? 注意此操作无法撤销."),
+                    gettext("确定"),
                     function () {
                         ViewUtils.runOperationShowingMessage(gettext('Discarding Changes&hellip;'),
                             function () {

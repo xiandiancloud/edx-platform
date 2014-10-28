@@ -426,9 +426,9 @@
         <div id="change_email_error" class="modal-form-error"> </div>
         <fieldset>
           <div class="input-group">
-            <label>${_('Please enter your new email address:')}</label>
+            <label style="font-style:normal">${_('Please enter your new email address:')}</label>
             <input id="new_email_field" type="email" value="" />
-            <label>${_('Please confirm your password:')}</label>
+            <label style="font-style:normal">${_('Please confirm your password:')}</label>
             <input id="new_email_password" value="" type="password" />
           </div>
           <section>
@@ -474,9 +474,9 @@
         <fieldset>
           <div class="input-group">
             ## Translators: note that {platform} {cert_name_short} will look something like: "edX certificate". Please do not change the order of these placeholders.
-            <label>${_("Enter your desired full name, as it will appear on your {platform} {cert_name_short}:").format(platform=settings.PLATFORM_NAME, cert_name_short=cert_name_short)}</label>
+            <label style="font-style:normal">${_("Enter your desired full name, as it will appear on your {platform} {cert_name_short}:").format(platform=settings.PLATFORM_NAME, cert_name_short=cert_name_short)}</label>
             <input id="new_name_field" value="" type="text" />
-            <label>${_("Reason for name change:")}</label>
+            <label style="font-style:normal">${_("Reason for name change:")}</label>
             <textarea id="name_rationale_field" value=""></textarea>
           </div>
           <div class="submit">

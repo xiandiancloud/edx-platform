@@ -243,7 +243,7 @@ define(["jquery", "underscore", "gettext", "js/views/pages/base_page", "js/views
                     rootLocator = this.xblockView.model.id;
                 if (xblockElement.length === 0 || xblockElement.data('locator') === rootLocator) {
                     this.render({refresh: true});
-                } else if (parentElement.hasClass('reorderable-container')) {
+                } else if (parentElement.hasClass('')) {
                     this.refreshChildXBlock(xblockElement);
                 } else {
                     this.refreshXBlock(this.findXBlockElement(parentElement));

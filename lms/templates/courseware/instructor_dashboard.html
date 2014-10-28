@@ -146,7 +146,7 @@ function goto( mode)
     </div>
     %endif
 
-    <h2 class="navbar">[ <a href="#" onclick="goto('Grades');" class="${modeflag.get('Grades')}">Grades</a> |
+    <h2 class="navbar">[ <a href="#" onclick="goto('Grades');" class="${modeflag.get('Grades')}">分数</a> |
           %if settings.FEATURES.get('ENABLE_PSYCHOMETRICS'):
             <a href="#" onclick="goto('Psychometrics');" class="${modeflag.get('Psychometrics')}">${_("Psychometrics")}</a> |
           %endif
@@ -212,22 +212,22 @@ function goto( mode)
     </p>
 
     <p>
-    <input type="submit" name="action" value="Dump list of enrolled students" class="${'is-disabled' if disable_buttons else ''}">
+    <input type="submit" name="action" value="转储注册学生" class="${'is-disabled' if disable_buttons else ''}">
     </p>
 
     <p>
-    <input type="submit" name="action" value="Dump Grades for all students in this course" class="${'is-disabled' if disable_buttons else ''}">
-    <input type="submit" name="action" value="Download CSV of all student grades for this course" class="${'is-disabled' if disable_buttons else ''}">
+    <input type="submit" name="action" value="转储所有学生成绩" class="${'is-disabled' if disable_buttons else ''}">
+    <input type="submit" name="action" value="下载CSV文件的所有学生成绩" class="${'is-disabled' if disable_buttons else ''}">
     </p>
 
     <p>
-    <input type="submit" name="action" value="Dump all RAW grades for all students in this course" class="${'is-disabled' if disable_buttons else ''}">
-    <input type="submit" name="action" value="Download CSV of all RAW grades" class="${'is-disabled' if disable_buttons else ''}">
+    <input type="submit" name="action" value="转储所有学生的RAW成绩" class="${'is-disabled' if disable_buttons else ''}">
+    <input type="submit" name="action" value="下载CSV文件的所有RAW成绩" class="${'is-disabled' if disable_buttons else ''}">
     </p>
 
     <p>
   %if not settings.FEATURES.get('ENABLE_ASYNC_ANSWER_DISTRIBUTION'):
-    <input type="submit" name="action" value="Download CSV of answer distributions" class="${'is-disabled' if disable_buttons else ''}">
+    <input type="submit" name="action" value="下载CSV文件的答案分布" class="${'is-disabled' if disable_buttons else ''}">
   %endif
     <input type="submit" name="action" value="Dump description of graded assignments configuration">
     </p>
@@ -278,14 +278,14 @@ function goto( mode)
     <tt>i4x://edX/Open_DemoX/problem/78c98390884243b89f6023745231c525</tt></p>
     <p>
       ${_("Then select an action:")}
-      <input type="submit" name="action" value="Reset ALL students' attempts">
-      <input type="submit" name="action" value="Rescore ALL students' problem submissions">
+      <input type="submit" name="action" value="重置所有学生尝试次数">
+      <input type="submit" name="action" value="对所有学生的提交记录重新评分">
     </p>
     <p>
     <p>${_("These actions run in the background, and status for active tasks will appear in a table below. To see status for all tasks submitted for this problem, click on this button:")}
     </p>
     <p>
-      <input type="submit" name="action" value="Show Background Task History">
+      <input type="submit" name="action" value="查看历史记录">
     </p>
 
     <hr width="40%" style="align:left">
@@ -298,7 +298,7 @@ function goto( mode)
     </p>
     <p>
       ${_("Click this, and a link to student's progress page will appear below:")}
-      <input type="submit" name="action" value="Get link to student's progress page">
+      <input type="submit" name="action" value="查看学生进度">
     </p>
     <p>
       ${_("Specify a problem in the course here with its complete location:")}
@@ -310,16 +310,16 @@ function goto( mode)
 
     <p>
       ${_("Then select an action:")}
-      <input type="submit" name="action" value="Reset student's attempts">
+      <input type="submit" name="action" value="重置学生尝试次数">
       %if settings.FEATURES.get('ENABLE_INSTRUCTOR_BACKGROUND_TASKS'):
-      <input type="submit" name="action" value="Rescore student's problem submission">
+      <input type="submit" name="action" value="对学生的提交记录重新评分">
       %endif
     </p>
 
     %if instructor_access:
     <p>
       ${_("You may also delete the entire state of a student for the specified module:")}
-      <input type="submit" name="action" value="Delete student state for module">
+      <input type="submit" name="action" value="删除关于这个问题的学生状态">
     </p>
     %endif
     %if settings.FEATURES.get('ENABLE_INSTRUCTOR_BACKGROUND_TASKS'):
@@ -327,7 +327,7 @@ function goto( mode)
            "To see status for all tasks submitted for this problem and student, click on this button:")}
     </p>
     <p>
-      <input type="submit" name="action" value="Show Background Task History for Student">
+      <input type="submit" name="action" value="查看相关问题的历史评判标准">
     </p>
     %endif
 
@@ -360,11 +360,11 @@ function goto( mode)
   %if instructor_access:
     <hr width="40%" style="align:left">
     <p>
-    <input type="submit" name="action" value="List course staff members">
+    <input type="submit" name="action" value="课程人员名单">
     <p>
     <input type="text" name="staffuser">
-    <input type="submit" name="action" value="Remove course staff">
-    <input type="submit" name="action" value="Add course staff">
+    <input type="submit" name="action" value="删除课程教员">
+    <input type="submit" name="action" value="增加课程教员">
     <hr width="40%" style="align:left">
   %endif
 
@@ -390,23 +390,23 @@ function goto( mode)
   %if instructor_access:
     <hr width="40%" style="align:left">
     <p>
-    <input type="submit" name="action" value="List course forum admins">
+    <input type="submit" name="action" value="课程论坛管理员名单">
     <p>
-    <input type="text" name="forumadmin"> <input type="submit" name="action" value="Remove forum admin">
-    <input type="submit" name="action" value="Add forum admin">
+    <input type="text" name="forumadmin"> <input type="submit" name="action" value="删除论坛管理员">
+    <input type="submit" name="action" value="增加论坛管理员">
     <hr width="40%" style="align:left">
   %endif
 
   %if instructor_access or forum_admin_access:
     <p>
-    <input type="submit" name="action" value="List course forum moderators">
-    <input type="submit" name="action" value="List course forum community TAs">
+    <input type="submit" name="action" value="课程论坛版主名单">
+    <input type="submit" name="action" value="课程论坛助教名单">
     <p>
     <input type="text" name="forummoderator">
-    <input type="submit" name="action" value="Remove forum moderator">
-    <input type="submit" name="action" value="Add forum moderator">
-    <input type="submit" name="action" value="Remove forum community TA">
-    <input type="submit" name="action" value="Add forum community TA">
+    <input type="submit" name="action" value="删除论坛版主">
+    <input type="submit" name="action" value="增加论坛版主">
+    <input type="submit" name="action" value="删除论坛助教">
+    <input type="submit" name="action" value="增加论坛助教">
     <hr width="40%" style="align:left">
   %else:
   <p>${_("User requires forum administrator privileges to perform administration tasks.  See instructor.")}</p>
@@ -443,8 +443,8 @@ function goto( mode)
     </div>
     % endif
 
-    <input type="submit" name="action" value="List enrolled students" class="${'is-disabled' if disable_buttons else ''}">
-    <input type="submit" name="action" value="List students who may enroll but may not have yet signed up" class="${'is-disabled' if disable_buttons else ''}">
+    <input type="submit" name="action" value="报名学生名单" class="${'is-disabled' if disable_buttons else ''}">
+    <input type="submit" name="action" value="报名但未登记学生名单" class="${'is-disabled' if disable_buttons else ''}">
     <hr width="40%" style="align:left">
 
   %if settings.FEATURES.get('REMOTE_GRADEBOOK_URL','') and instructor_access:
@@ -472,9 +472,9 @@ function goto( mode)
   <input type="checkbox" name="email_students"> ${_("Notify students by email")}
   <p>
   <input type="checkbox" name="auto_enroll"> ${_("Auto-enroll students when they activate")}
-  <input type="submit" name="action" value="Enroll multiple students">
+  <input type="submit" name="action" value="注册多个学生">
   <p>
-  <input type="submit" name="action" value="Unenroll multiple students">
+  <input type="submit" name="action" value="单个注册学生">
 
 %endif
 
@@ -483,14 +483,14 @@ function goto( mode)
 %if modeflag.get('Data'):
     <hr width="40%" style="align:left">
     <p>
-    <input type="submit" name="action" value="Download CSV of all student profile data">
+    <input type="submit" name="action" value="下载CSV格式的所有学生档案数据">
     </p>
     <p> ${_("Problem urlname:")}
         <input type="text" name="problem_to_dump" size="40">
-        <input type="submit" name="action" value="Download CSV of all responses to problem">
+        <input type="submit" name="action" value="下载CSV格式的所有响应问题">
     </p>
     <p>
-    <input type="submit" name="action" value="Download CSV of all student anonymized IDs">
+    <input type="submit" name="action" value="下载CSV格式的所有学生的匿名ID">
     </p>
     <hr width="40%" style="align:left">
 %endif
@@ -501,7 +501,7 @@ function goto( mode)
   %if instructor_access:
     <hr width="40%" style="align:left">
     <p>
-    <input type="submit" name="action" value="List beta testers">
+    <input type="submit" name="action" value="beta测试人员名单">
     <p>
     ## Translators: days_early_for_beta should not be translated
     ${_("Enter usernames or emails for students who should be beta-testers, one per line, or separated by commas.  They will get to "
@@ -509,8 +509,8 @@ function goto( mode)
     </p>
     <p>
     <textarea cols="50" row="30" name="betausers"></textarea>
-    <input type="submit" name="action" value="Remove beta testers">
-    <input type="submit" name="action" value="Add beta testers">
+    <input type="submit" name="action" value="删除beta测试人员">
+    <input type="submit" name="action" value="增加beta测试人员">
     </p>
     <hr width="40%" style="align:left">
 
@@ -577,7 +577,7 @@ function goto( mode)
         <b>${_("A queued email CANNOT be cancelled.")}</b></p>
       </div>
       <br />
-      <input type="submit" name="action" value="Send email">
+      <input type="submit" name="action" value="发送邮件">
     </div>
     <script type="text/javascript">
       $(document).ready(function(){
@@ -590,11 +590,11 @@ function goto( mode)
     </script>
 
     <br />
-    <p>These email actions run in the background, and status for active email tasks will appear in a table below.
-       To see status for all bulk email tasks submitted for this course, click on this button:
+    <p>电子邮件操作在后台执行。任何活动任务的状态 - 包括电子邮件任务 - 都在下表中列出.
+       若要查看本课程所有已提交批量邮件任务的状态，点击此按钮：
     </p>
     <p>
-      <input type="submit" name="action" value="Show Background Email Task History">
+      <input type="submit" name="action" value="显示邮件任务历史">
     </p>
 %endif
 

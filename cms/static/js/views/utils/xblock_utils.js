@@ -75,12 +75,12 @@ define(["jquery", "underscore", "gettext", "js/views/utils/view_utils", "js/util
                 url = ModuleUtils.getUpdateUrl(xblockInfo.id),
                 xblockType = xblockType || gettext('component');
             ViewUtils.confirmThenRunOperation(
-                interpolate(gettext('Delete this %(xblock_type)s?'), { xblock_type: xblockType }, true),
+                interpolate(gettext('刪除该章节?'), { xblock_type: xblockType }, true),
                 interpolate(
-                    gettext('Deleting this %(xblock_type)s is permanent and cannot be undone.'),
+                    gettext('刪除将无法恢复.'),
                     { xblock_type: xblockType }, true
                 ),
-                interpolate(gettext('Yes, delete this %(xblock_type)s'), { xblock_type: xblockType }, true),
+                interpolate(gettext('删除'), { xblock_type: xblockType }, true),
                 function() {
                     ViewUtils.runOperationShowingMessage(gettext('Deleting&hellip;'),
                         function() {

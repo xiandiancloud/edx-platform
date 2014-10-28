@@ -137,8 +137,8 @@
       TabsEdit.prototype.deleteTab = function(event) {
         var confirm;
         confirm = new PromptView.Warning({
-          title: gettext('Delete Page Confirmation'),
-          message: gettext('Are you sure you want to delete this page? This action cannot be undone.'),
+          title: gettext('删除这个页面'),
+          message: gettext('你确定删除这个页面? 该操作无法恢复.'),
           actions: {
             primary: {
               text: gettext("OK"),

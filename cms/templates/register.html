@@ -54,18 +54,18 @@
 
              <li class="field-group">
               <div class="field text" id="field-province">
-                <label for="province">${_("Province")}</label>
-                  <select id="province" name="province" style="width:100%;">
-                      <option value="">--</option>
+                <label for="province">省份</label>
+                  <select id="province" name="province" style="width:100%;height:50px">
+                      <option value=""></option>
                       %for code,pro in UserProfile.PROVINCE_CHOICES:
                       <option value="${code}">${pro}</option>
                       %endfor
                   </select>
               </div>
               <div class="field text" id="field-school">
-                <label for="school">${_("School")}</label>
-                  <select  id="school" name="name_of_school" style="width:100%;">
-                      <option value="">--</option>
+                <label for="school">学校</label>
+                  <select  id="school" name="name_of_school" style="width:100%;height:50px">
+                      <option value=""></option>
                       %for code,school in UserProfile.SCHOOL_CHOICE:
                       <option value="${code}">${school}</option>
                       %endfor

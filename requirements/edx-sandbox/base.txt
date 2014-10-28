@@ -4,7 +4,7 @@
 #   * @jtauber - to check licensing
 #   * One of @e0d, @jarv, or @feanil - to check system requirements
 
-numpy==1.6.2
+#numpy==1.6.2
 networkx==1.7
 sympy==0.7.1
 pyparsing==2.0.1

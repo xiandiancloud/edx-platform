@@ -1,0 +1,7 @@
+mock
+nose
+coverage
+lettuce
+pep8
+pylint<1.0
+diff_cover

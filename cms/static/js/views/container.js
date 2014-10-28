@@ -1,7 +1,7 @@
 define(["jquery", "underscore", "js/views/xblock", "js/utils/module", "gettext", "js/views/feedback_notification",
     "jquery.ui"], // The container view uses sortable, which is provided by jquery.ui.
     function ($, _, XBlockView, ModuleUtils, gettext, NotificationView) {
-        var reorderableClass = '.reorderable-container',
+        var reorderableClass = '.',
             sortableInitializedClass = '.ui-sortable',
             studioXBlockWrapperClass = '.studio-xblock-wrapper';
 

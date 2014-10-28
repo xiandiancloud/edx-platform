@@ -115,6 +115,11 @@
   })(this)
   </script>
 
+
+
+  <script type="text/javascript" charset="utf-8" src="${static.url('js/buttonLite.js')}"></script>
+  <script type="text/javascript" charset="utf-8" src="${static.url('js/bshareC0.js')}"></script>
+
   <script src="${static.url('js/course_info.js')}"></script>
 </%block>
 
@@ -243,12 +248,16 @@
             ##       or something allowing themes to do whatever they
             ##       want here (and on this whole page, really).
             % if self.stanford_theme_enabled():
-              <a href="http://twitter.com/intent/tweet?text=I+just+registered+for+${course.number}+${get_course_about_section(course, 'title')}!+(http://class.stanford.edu)" class="share">
-                <img src="${static.url('images/social/twitter-sharing.png')}" alt="Tweet that you've registered for this course">
-              </a>
-              <a href="mailto:?subject=Take%20a%20course%20at%20Stanford%20online!&body=I%20just%20registered%20for%20${course.number}%20${get_course_about_section(course, 'title')}+(http://class.stanford.edu)" class="share">
-                <img src="${static.url('images/social/email-sharing.png')}" alt="Email someone to say you've registered for this course">
-              </a>
+
+
+            <div class="bshare-custom icon-medium-plus">
+            <a title="分享到QQ空间" class="bshare-qzone"></a>
+            <a title="分享到新浪微博" class="bshare-sinaminiblog"></a>
+            <a title="分享到人人网" class="bshare-renren"></a>
+            <a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a>
+
+            </div>
+
             % else:
               <%
                 site_domain = microsite.get_value('site_domain', settings.SITE_NAME)
@@ -282,15 +291,11 @@
                     )
                 ).replace(u" ", u"%20")
               %>
-              <a href="${tweet_action}" class="share">
-                <img src="${static.url('images/social/twitter-sharing.png')}" alt="Tweet that you've registered for this course">
-              </a>
-              <a href="${facebook_link}" class="share">
-                <img src="${static.url('images/social/facebook-sharing.png')}" alt="Post a Facebook message to say you've registered for this course">
-              </a>
-              <a href="${email_subject}" class="share">
-                <img src="${static.url('images/social/email-sharing.png')}" alt="Email someone to say you've registered for this course">
-              </a>
+            <div class="bshare-custom icon-medium-plus">
+            <a title="分享到QQ空间" class="bshare-qzone"></a>
+            <a title="分享到新浪微博" class="bshare-sinaminiblog"></a>
+            <a title="分享到人人网" class="bshare-renren"></a>
+            <a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a>
             % endif
           </div>
           % endif

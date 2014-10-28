@@ -1,0 +1,26 @@
+# 3rd-party needs
+lxml
+requests
+webob
+simplejson
+pytz
+python-dateutil
+
+# For Tests
+mock
+nose
+coverage
+pylint == 1.1.0
+rednose
+pep8
+diff-cover >= 0.2.1
+ddt==0.8.0
+
+# For docs
+-r doc/requirements.txt
+
+# For generating new XBlocks
+cookiecutter
+
+# Our own XBlocks
+-e .

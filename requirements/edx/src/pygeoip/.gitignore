@@ -1,0 +1,12 @@
+*env
+*.pyc
+*.egg-info
+tests/data/*
+.tox
+build
+dist
+pygeoip-*
+cover
+.coverage
+.coveralls.yml
+docs/_build/*

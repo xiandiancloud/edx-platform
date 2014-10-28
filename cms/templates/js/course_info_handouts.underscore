@@ -1,6 +1,6 @@
-<a href="#" class="edit-button"><span class="edit-icon"></span><%= gettext("Edit") %></a>
+<a href="#" class="edit-button"><span class="edit-icon"></span><%= gettext("编辑") %></a>
 
-<h2 class="title"><%= gettext("Course Handouts") %></h2>
+<h2 class="title"><%= gettext("课程讲义") %></h2>
 <%if (model.get('data') != null) { %>
   <div class="handouts-content">
 

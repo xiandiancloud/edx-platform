@@ -8,16 +8,16 @@ var statusMessage = null;
 var statusType = null;
 if (visibilityState === 'staff_only') {
     statusType = 'staff-only';
-    statusMessage = gettext('Contains staff only content');
+    statusMessage = gettext('包含仅教员可见内容');
 } else if (visibilityState === 'needs_attention') {
     if (category === 'vertical') {
         statusType = 'warning';
         if (published && releasedToStudents) {
-            statusMessage = gettext('Unpublished changes to live content');
+            statusMessage = gettext('未发布:实时内容改变');
         } else if (!published) {
-            statusMessage = gettext('Unpublished units will not be released');
+            statusMessage = gettext('未发布');
         } else {
-            statusMessage = gettext('Unpublished changes to content that will release in the future');
+            statusMessage = gettext('内容已修改暂未发布');
         }
     }
 }
@@ -65,7 +65,7 @@ if (xblockInfo.get('graded')) {
             <ul class="actions-list">
                 <% if (xblockInfo.isEditableOnCourseOutline()) { %>
                     <li class="action-item action-configure">
-                        <a href="#" data-tooltip="<%= gettext('Configure') %>" class="configure-button action-button">
+                        <a href="#" data-tooltip="<%= gettext('设置') %>" class="configure-button action-button">
                             <i class="icon-gear"></i>
                             <span class="sr action-button-text"><%= gettext('Configure') %></span>
                         </a>
@@ -94,13 +94,13 @@ if (xblockInfo.get('graded')) {
                     <span class="status-release-value">
                         <% if (xblockInfo.get('released_to_students')) { %>
                             <i class="icon icon-check-sign"></i>
-                            <%= gettext('Released:') %>
+                            <%= gettext('已公布:') %>
                         <% } else if (xblockInfo.get('release_date')) { %>
                             <i class="icon icon-time"></i>
-                            <%= gettext('Scheduled:') %>
+                            <%= gettext('计划公布:') %>
                         <% } else { %>
                             <i class="icon icon-time"></i>
-                            <%= gettext('Unscheduled') %>
+                            <%= gettext('暂无计划') %>
                         <% } %>
                         <% if (xblockInfo.get('release_date')) { %>
                             <%= xblockInfo.get('release_date') %>
@@ -133,7 +133,7 @@ if (xblockInfo.get('graded')) {
 
     <% if (!parentInfo && xblockInfo.get('child_info') && xblockInfo.get('child_info').children.length === 0) { %>
         <div class="no-content add-section">
-            <p><%= gettext("You haven't added any content to this course yet.") %>
+            <p><%= gettext("你尚未添加任何内容.") %>
                 <a href="#" class="button button-new" data-category="<%= childCategory %>"
                    data-parent="<%= xblockInfo.get('id') %>" data-default-name="<%= defaultNewChildName %>"
                    title="<%= interpolate(gettext('Click to add a new %(xblock_type)s'), { xblock_type: defaultNewChildName }, true) %>" >

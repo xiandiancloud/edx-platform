@@ -1,0 +1,4 @@
+[run]
+branch = True
+include = eventtracking*
+omit = eventtracking/*tests*

@@ -2,7 +2,7 @@
     <div class="message has-warnings">
         <p class="warning">
             <i class="icon-warning-sign"></i>
-            <%= gettext("Caution: The last published version of this unit is live. By publishing changes you will change the student experience.") %>
+            <%= gettext("注意:该单元已成功发布. 当你需要修改并重新发布时学生学习进度可能会发生改变.") %>
         </p>
     </div>
 <% } %>

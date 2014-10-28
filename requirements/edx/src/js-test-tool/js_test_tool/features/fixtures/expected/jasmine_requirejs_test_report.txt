@@ -1,0 +1,32 @@
+=======================
+JavaScript test results
+=======================
+Browser: firefox
+
+F..
+
+the test runner can load failing tests: should be a failing test [fail]
+    Expected true to be falsy.
+
+
+-----------------------
+Failed:  1
+Error:   0
+Skipped: 0
+Passed:  2
+=======================
+=======================
+Browser: phantomjs
+
+F..
+
+the test runner can load failing tests: should be a failing test [fail]
+    Expected true to be falsy.
+
+
+-----------------------
+Failed:  1
+Error:   0
+Skipped: 0
+Passed:  2
+=======================

@@ -1,7 +1,7 @@
 <%
-var copy = gettext("Never published");
+var copy = gettext("未发布");
 if (published_on && published_by) {
-    var message = gettext("Last published %(last_published_date)s by %(publish_username)s");
+    var message = gettext("上次发布： %(last_published_date)s 发布者： %(publish_username)s");
     copy = interpolate(message, {
         last_published_date: '<span class="date">' + published_on + '</span>',
         publish_username: '<span class="user">' + published_by + '</span>'

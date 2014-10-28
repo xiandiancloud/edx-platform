@@ -310,8 +310,8 @@ def _save_xblock(user, xblock, data=None, children=None, metadata=None, nullout=
         # we may want to return the full XBlockInfo.
         return JsonResponse({'id': unicode(xblock.location)})
 
-    old_metadata = own_metadata(xblock)
-    old_content = xblock.get_explicitly_set_fields_by_scope(Scope.content)
+    old_metadata = own_metadata(xblock)#franz get old setting youtube_id_1_0 html5_source
+    old_content = xblock.get_explicitly_set_fields_by_scope(Scope.content)# franz get old content
 
     if data:
         # TODO Allow any scope.content fields not just "data" (exactly like the get below this)
@@ -340,7 +340,7 @@ def _save_xblock(user, xblock, data=None, children=None, metadata=None, nullout=
         # the intent is to make it None, use the nullout field
         if metadata is not None:
             for metadata_key, value in metadata.items():
-                field = xblock.fields[metadata_key]
+                field = xblock.fields[metadata_key] #franz only html5_sources
 
                 if value is None:
                     field.delete_from(xblock)
@@ -355,7 +355,7 @@ def _save_xblock(user, xblock, data=None, children=None, metadata=None, nullout=
         xblock.editor_saved(user, old_metadata, old_content)
 
     # commit to datastore
-    store.update_item(xblock, user.id)
+    store.update_item(xblock, user.id)#franz this xblock only vedio element, based on xblock id to get and update
 
     # for static tabs, their containing course also records their display name
     if xblock.location.category == 'static_tab':

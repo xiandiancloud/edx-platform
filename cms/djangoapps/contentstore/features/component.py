@@ -93,7 +93,7 @@ def add_component_category(step, component, category):
 
 @step(u'I delete all components$')
 def delete_all_components(step):
-    count = len(world.css_find('ol.reorderable-container li.studio-xblock-wrapper'))
+    count = len(world.css_find('ol. li.studio-xblock-wrapper'))
     step.given('I delete "' + str(count) + '" component')
 
 

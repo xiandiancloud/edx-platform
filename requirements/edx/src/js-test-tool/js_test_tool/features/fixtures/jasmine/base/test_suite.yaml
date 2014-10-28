@@ -1,0 +1,13 @@
+---
+test_suite_name: jasmine
+prepend_path: base
+lib_paths:
+    - lib/jquery.js
+    - lib/jasmine-jquery.js
+spec_paths: 
+    - spec
+src_paths: 
+    - src
+fixture_paths:
+    - fixtures
+test_runner: jasmine

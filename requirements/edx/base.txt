@@ -55,7 +55,7 @@ pip>=1.4
 polib==1.0.3
 pycrypto>=2.6
 pygments==1.6
-pygraphviz==1.1
+#pygraphviz==1.1
 pymongo==2.4.1
 pyparsing==2.0.1
 python-memcached==1.48
@@ -67,7 +67,7 @@ pysrt==0.4.7
 PyYAML==3.10
 requests==2.3.0
 requests-oauthlib==0.4.1
-scipy==0.11.0
+#scipy==0.11.0
 Shapely==1.2.16
 singledispatch==3.4.0.2
 sorl-thumbnail==11.12
@@ -130,10 +130,10 @@ testtools==0.9.34
 # Used for Segment.io analytics
 analytics-python==0.4.4
 
-git+https://github.com/mfogel/django-settings-context-processor.git
+#git+https://github.com/mfogel/django-settings-context-processor.git
 
 # django-cas version 2.0.3 with patch to be compatible with django 1.4
-git+https://github.com/mitocw/django-cas.git
+#git+https://github.com/mitocw/django-cas.git
 
 # edX packages
 edx-submissions==0.0.6

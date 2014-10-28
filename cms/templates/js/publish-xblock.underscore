@@ -1,43 +1,43 @@
 <%
-var title = gettext("Draft (Never published)");
+var title = gettext(" 草稿(未发布)");
 if (visibilityState === 'staff_only') {
-    title = gettext("Visible to Staff Only");
+    title = gettext("仅教员可见");
 } else if (visibilityState === 'live') {
-    title = gettext("Published and Live");
+    title = gettext("已发布");
 } else if (published && !hasChanges) {
-    title = gettext("Published (not yet released)");
+    title = gettext("发布（尚未公布）");
 } else if (published && hasChanges) {
-    title = gettext("Draft (Unpublished changes)");
+    title = gettext("草稿 (修改未发布)");
 }
 
-var releaseLabel = gettext("Release:");
+var releaseLabel = gettext("公布日:");
 if (visibilityState === 'live') {
-    releaseLabel = gettext("Released:");
+    releaseLabel = gettext("已发布:");
 } else if (visibilityState === 'ready') {
-    releaseLabel = gettext("Scheduled:");
+    releaseLabel = gettext("计划:");
 }
 
 var visibleToStaffOnly = visibilityState === 'staff_only';
 %>
 <div class="bit-publishing <%= visibilityClass %> <% if (releaseDate) { %>is-scheduled<% } %>">
-    <h3 class="bar-mod-title pub-status"><span class="sr"><%= gettext("Publishing Status") %></span>
+    <h3 class="bar-mod-title pub-status"><span class="sr"><%= gettext("发布状态") %></span>
         <%= title %>
     </h3>
 
     <div class="wrapper-last-draft bar-mod-content">
         <p class="copy meta">
             <% if (hasChanges && editedOn && editedBy) {
-                var message = gettext("Draft saved on %(last_saved_date)s by %(edit_username)s") %>
+                var message = gettext("草稿保存于 %(last_saved_date)s 保存者： %(edit_username)s") %>
                 <%= interpolate(message, {
                     last_saved_date: '<span class="date">' + editedOn + '</span>',
                     edit_username: '<span class="user">' + editedBy + '</span>' }, true) %>
             <% } else if (publishedOn && publishedBy) {
-                var message = gettext("Last published %(last_published_date)s by %(publish_username)s"); %>
+                var message = gettext("最后一次发布 %(last_published_date)s 发布者： %(publish_username)s"); %>
                 <%= interpolate(message, {
                     last_published_date: '<span class="date">' + publishedOn + '</span>',
                     publish_username: '<span class="user">' + publishedBy + '</span>' }, true) %>
             <% } else { %>
-                <%= gettext("Previously published") %>
+                <%= gettext("上次发布") %>
             <% } %>
         </p>
     </div>
@@ -46,12 +46,12 @@ var visibleToStaffOnly = visibilityState === 'staff_only';
         <h5 class="title"><%= releaseLabel %></h5>
         <p class="copy">
             <% if (releaseDate) { %>
-                <% var message = gettext("%(release_date)s with %(section_or_subsection)s") %>
+                <% var message = gettext(" %(section_or_subsection)s 发布日：%(release_date)s ") %>
                 <%= interpolate(message, {
                     release_date: '<span class="release-date">' + releaseDate + '</span>',
                     section_or_subsection: '<span class="release-with">' + releaseDateFrom + '</span>' }, true) %>
             <% } else { %>
-                <%= gettext("Unscheduled") %>
+                <%= gettext("暂无计划") %>
             <% } %>
         </p>
     </div>
@@ -59,15 +59,15 @@ var visibleToStaffOnly = visibilityState === 'staff_only';
     <div class="wrapper-visibility bar-mod-content">
         <h5 class="title">
             <% if (released && published && !hasChanges) { %>
-                <%= gettext("Is Visible To:") %>
+                <%= gettext("可见:") %>
             <% } else { %>
-                <%= gettext("Will Be Visible To:") %>
+                <%= gettext("对以下可见:") %>
             <% } %>
         </h5>
         <% if (visibleToStaffOnly) { %>
-            <p class="copy"><%= gettext("Staff Only") %></p>
+            <p class="copy"><%= gettext("仅教员") %></p>
         <% } else { %>
-            <p class="copy"><%= gettext("Staff and Students") %></p>
+            <p class="copy"><%= gettext("教员和学生") %></p>
         <% } %>
         <p class="action-inline">
             <a href="" class="action-staff-lock" role="button" aria-pressed="<%= visibleToStaffOnly %>">
@@ -76,7 +76,7 @@ var visibleToStaffOnly = visibilityState === 'staff_only';
                 <% } else { %>
                     <i class="icon-check-empty"></i>
                 <% } %>
-                <%= gettext('Hide from students') %>
+                <%= gettext('对学生隐藏') %>
             </a>
         </p>
     </div>
@@ -85,12 +85,12 @@ var visibleToStaffOnly = visibilityState === 'staff_only';
         <ul class="action-list">
             <li class="action-item">
                 <a class="action-publish action-primary <% if (published && !hasChanges) { %>is-disabled<% } %>"
-                   href=""><%= gettext("Publish") %>
+                   href=""><%= gettext("发布") %>
                 </a>
             </li>
             <li class="action-item">
                 <a class="action-discard action-secondary <% if (!published || !hasChanges) { %>is-disabled<% } %>"
-                   href=""><%= gettext("Discard Changes") %>
+                   href=""><%= gettext("放弃更改") %>
                 </a>
             </li>
         </ul>
