@@ -272,7 +272,7 @@
     padding-bottom: $baseline;
 
     // min-height to allow drop when empty
-    . {
+    .reorderable-container {
       min-height: $baseline;
     }
 
