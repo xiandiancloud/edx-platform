@@ -1,1 +1,0 @@
-define(["spec/mainSpec", "mySpecialName"]);

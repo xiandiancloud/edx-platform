@@ -1,4 +1,0 @@
-[console_scripts]
-pystache_custom = pystache_custom.commands.render:main
-pystache_custom-test = pystache_custom.commands.test:main
-

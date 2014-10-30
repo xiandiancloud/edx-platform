@@ -1,1 +1,0 @@
-"""Test Django specific tracking"""
